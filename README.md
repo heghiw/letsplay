@@ -1,4 +1,4 @@
-# letsplay
+# letsplay - in dev
 
 Prompt Master is a minimal web app that teaches prompt engineering through task-based challenges. Users are given specific output goals (e.g., "Make the model return only 'hello'") and must craft prompts to achieve them. Responses are evaluated and scored for accuracy.
 
