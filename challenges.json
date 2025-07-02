@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "task": "Make the model say only 'hello'",
+    "target": "hello"
+  },
+  {
+    "id": 2,
+    "task": "Answer only with 'yes'",
+    "target": "yes"
+  }
+  // ...more
+]
