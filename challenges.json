@@ -6,8 +6,12 @@
   },
   {
     "id": 2,
-    "task": "Answer only with 'yes'",
+    "task": "Make the model answer 'yes' only",
     "target": "yes"
+  },
+  {
+    "id": 3,
+    "task": "Generate the number 12345 exactly",
+    "target": "12345"
   }
-  // ...more
 ]
