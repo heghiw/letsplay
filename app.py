@@ -2,14 +2,13 @@ import streamlit as st
 import pandas as pd
 import json
 from fuzzywuzzy import fuzz
-from transformers import pipeline, set_seed
-
+from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 
 @st.cache_resource
 def load_model():
-    generator = pipeline('text-generation', model='distilgpt2')
-    set_seed(42)
-    return generator
+    tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-small")
+    model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-small")
+    return pipeline("text2text-generation", model=model, tokenizer=tokenizer)
 
 model = load_model()
 
@@ -52,7 +51,7 @@ with st.sidebar:
         2. The model will generate an output.
         3. You’ll be scored based on how closely it matches the target.
         4. Each extra token = penalty.
-        5. Compete over 5 rounds!
+        5. Compete over multiple rounds!
         """)
 
 # --- Main App UI ---
@@ -75,11 +74,11 @@ if current_round <= max_rounds:
 
         if st.button("Submit Prompt"):
             with st.spinner("Generating..."):
-                full_response = model(user_prompt, max_new_tokens=20, do_sample=True)[0]["generated_text"]
-                model_output = full_response[len(user_prompt):].strip()
+                full_response = model(user_prompt, max_new_tokens=20)[0]["generated_text"]
+                model_output = full_response.strip()
 
                 # --- Scoring ---
-                match_score = fuzz.ratio(model_output.strip().lower(), target_output.strip().lower())
+                match_score = fuzz.ratio(model_output.lower(), target_output.lower())
                 allowed_tokens = len(target_output.strip().split())
                 used_tokens = count_tokens(model_output)
                 token_penalty = -(used_tokens - allowed_tokens) if used_tokens > allowed_tokens else 0
@@ -142,6 +141,7 @@ else:
 # --- Progress Indicator ---
 if st.session_state.round <= max_rounds:
     st.progress((st.session_state.round - 1) / max_rounds)
+
 st.markdown("""
 <style>
     .block-container {
@@ -153,4 +153,5 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
 
