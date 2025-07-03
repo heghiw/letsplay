@@ -4,7 +4,7 @@ import json
 from fuzzywuzzy import fuzz
 from transformers import pipeline, set_seed
 
-# --- Load smaller GPT-2 model ---
+
 @st.cache_resource
 def load_model():
     generator = pipeline('text-generation', model='distilgpt2')
@@ -142,8 +142,6 @@ else:
 # --- Progress Indicator ---
 if st.session_state.round <= max_rounds:
     st.progress((st.session_state.round - 1) / max_rounds)
-
-# --- Minimal Styling ---
 st.markdown("""
 <style>
     .block-container {
