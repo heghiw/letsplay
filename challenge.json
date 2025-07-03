@@ -1,27 +1,53 @@
 [
   {
     "id": 1,
-    "task": "Make the model say only 'hello'",
-    "target": "hello"
+    "task": "Make the model output exactly the word banana.",
+    "target": "banana"
   },
   {
     "id": 2,
-    "task": "Make the model answer 'yes' only",
-    "target": "yes"
+    "task": "Get the model to say only the number 42.",
+    "target": "42"
   },
   {
     "id": 3,
-    "task": "Generate the number 12345 exactly",
-    "target": "12345"
+    "task": "Instruct the model to return just the word yes.",
+    "target": "yes"
   },
   {
     "id": 4,
-    "task": "Generate a JSON object with a key 'status' and value 'ok'",
-    "target": "{\"status\": \"ok\"}"
+    "task": "Prompt the model to output only the word apple, with nothing else.",
+    "target": "apple"
   },
   {
     "id": 5,
-    "task": "Output the word 'done' without punctuation or quotes",
-    "target": "done"
+    "task": "Make the model return Hello World exactly, without quotes or punctuation.",
+    "target": "Hello World"
+  },
+  {
+    "id": 6,
+    "task": "Get the model to write the number 123456 and nothing else.",
+    "target": "123456"
+  },
+  {
+    "id": 7,
+    "task": "Instruct the AI to return only the phrase I agree.",
+    "target": "I agree"
+  },
+  {
+    "id": 8,
+    "task": "Make the model respond with the word true.",
+    "target": "true"
+  },
+  {
+    "id": 9,
+    "task": "Get the model to say zero, and zero only.",
+    "target": "zero"
+  },
+  {
+    "id": 10,
+    "task": "Make the model list red blue green with spaces and nothing else.",
+    "target": "red blue green"
   }
 ]
+
