@@ -13,5 +13,15 @@
     "id": 3,
     "task": "Generate the number 12345 exactly",
     "target": "12345"
+  },
+  {
+    "id": 4,
+    "task": "Generate a JSON object with a key 'status' and value 'ok'",
+    "target": "{\"status\": \"ok\"}"
+  },
+  {
+    "id": 5,
+    "task": "Output the word 'done' without punctuation or quotes",
+    "target": "done"
   }
 ]
